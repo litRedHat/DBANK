@@ -1,0 +1,12 @@
+<html ng-app='dbank'>
+<body ng-controller="HextController">
+	<p ng-bind="name"></p>
+	<script src="../js/angular.js"></script>
+	<script>
+		var dbank = angular.module('dbank', []);
+		dbank.controller('HextController', function HextController($scope) {
+			$scope.name = 'wugang';
+		});
+	</script>
+<body>
+</html>

@@ -1,0 +1,29 @@
+<html ng-app='SingUpModule'>
+<body>
+	<form name="addUserForm" ng-controller="addUserController">
+		<div>
+			姓名：<input ng-module="user.name" required>
+		</div>
+		<div>
+			邮箱：<input type="email" ng-module="user.email" required>
+		</div>
+		<div>
+			年龄：<input type="number" ng-maxlength="3" ng-minlength="1"
+				ng-module="user.age" required>
+		</div>
+		<div>
+			<button ng-disabled='!addUserForm.$valid' ng-click="addUser()">Submit</button>
+		</div>
+	</form>
+	<script src="../js/angular.js"></script>
+	<script>
+		var SingUpModule = angular.module('SingUpModule', []);
+		SingUpModule.controller('addUserController',
+				function addUserController($scope) {
+					$scope.addUser = function() {
+						alert('注册成功');
+					}
+				});
+	</script>
+<body>
+</html>

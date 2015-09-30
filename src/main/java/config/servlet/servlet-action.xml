@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/mvc 
+		http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+		http://www.springframework.org/schema/mvc    
+        http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+        http://www.springframework.org/schema/util 
+        http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+
+	<!-- 首页 -->
+	<bean name="/index.html" class="com.tangdi.dbank.action.PROC000001" />
+	<!-- 下载交易 -->
+	<bean name="/down.html" class="com.tangdi.dbank.action.PROC000003" />
+	<!-- 生成二维码 -->
+	<bean name="/QRcode.html" class="com.tangdi.dbank.action.PROC000002" />
+
+	<bean name="/ajax.do" class="com.tangdi.dbank.action.PROC100004" />
+
+	<bean name="/hello.html" class="com.tangdi.dbank.action.PROC000004" />
+
+	<bean name="/products/Restful" class="com.tangdi.dbank.action.PROC000007" />
+
+	<bean name="/recomment/loadImg.do" class="com.tangdi.dbank.action.PROC000006" />
+</beans>

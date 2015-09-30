@@ -1,0 +1,25 @@
+<html ng-app='httpRequestModule'>
+<body ng-controller="HttpController">
+	<button ng-click="submit()">Submit</button>
+	<script src="../js/angular.js"></script>
+	<script>
+		var httpRequestModule = angular.module('httpRequestModule', []);
+		httpRequestModule.controller('HttpController', function HttpController(
+				$scope) {
+			
+			$scope.submit = function() {
+				alert('submit');
+				$http.get('http://localhost:8080/DBANK/hello.do', {
+					param : {
+						id : '5'
+					}
+				}).success(function(data, status, headers, config) {
+						alert('success');
+				}).error(function(data, status, headers, config) {
+						alert('error');
+				});
+			}
+		});
+	</script>
+<body>
+</html>
