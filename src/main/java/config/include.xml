@@ -8,5 +8,4 @@
 	<import resource="dbank-db.xml" />
 	<import resource="dbank-email.xml" />
 	<import resource="dbank-thymeleaf.xml" />
-	<!-- <import resource="dbank-castor.xml" /> -->
 </beans>

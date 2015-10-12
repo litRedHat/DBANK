@@ -19,9 +19,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.tangdi.dbank.base.BaseAction;
-import com.tangdi.dbank.base.XMLMessageEngine;
-import com.tangdi.dbank.xmlbean.chip.req.Req7021;
-import com.tangdi.dbank.xmlbean.chip.res.Res7021;
 
 /**
  * @version 1.0
