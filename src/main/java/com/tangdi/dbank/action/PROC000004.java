@@ -18,7 +18,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.tangdi.dbank.base.BaseAction;
+import com.tangdi.dbank.base.ChipCommAction;
 
 /**
  * @version 1.0
@@ -26,7 +26,7 @@ import com.tangdi.dbank.base.BaseAction;
  * @create date 2015-6-15
  */
 @Controller
-public class PROC000004 extends BaseAction {
+public class PROC000004 {
 
 	@Autowired
 	private SqlSessionTemplate sqlSession;

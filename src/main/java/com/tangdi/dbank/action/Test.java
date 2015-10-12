@@ -1,17 +1,19 @@
 package com.tangdi.dbank.action;
 
-import java.io.StringWriter;
+import java.util.concurrent.atomic.AtomicLong;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.tangdi.dbank.xmlbean.chip.BaseRequest;
+import com.tangdi.dbank.base.ChipCommAction;
+import com.tangdi.dbank.xmlbean.chip.BaseResponse;
 import com.tangdi.dbank.xmlbean.chip.req.Req7021;
-import com.thoughtworks.xstream.XStream;
-import com.thoughtworks.xstream.io.xml.CompactWriter;
+import com.tangdi.dbank.xmlbean.chip.res.Res7021;
 
 public class Test {
 	private static Logger logger = LoggerFactory.getLogger(Test.class);
+
+	private static final AtomicLong counter = new AtomicLong();
 
 	public static void main(String[] args) {
 		// BeanFactory beanFactory = new XmlBeanFactory(new
@@ -55,22 +57,15 @@ public class Test {
 		// xs.toXML(baseRequest, writer);
 		// logger.info("\n" + writer.toString());
 
-		XStream xstream = new XStream();
-		StringWriter wt = new StringWriter();
-
 		Req7021 req7021 = new Req7021();
 		req7021.setTelephone("15618389010");
 		req7021.setContent("动态密码：389593(2分钟内有效)。您正在进行海南银行椰Bank安全认证。");
 		req7021.setProtocol("C200");
 		req7021.setTempCode("9999");
-		BaseRequest msg = new BaseRequest(req7021);
-
-		xstream.alias("Msg", BaseRequest.class);
-		xstream.aliasField("Head", BaseRequest.class, "ReqHead");
-		xstream.aliasField("Body", BaseRequest.class, "ReqBody");
-		xstream.aliasSystemAttribute(null, "class");
-		xstream.marshal(msg, new CompactWriter(wt));
-		// xstream.toXML(msg, wt);
-		logger.info("<?xml version=\"1.0\" encoding=\"gbk\"?>" + wt.toString());
+		ChipCommAction cca = new ChipCommAction();
+		BaseResponse response = cca.sendAndRecieve(req7021, "7021");
+		logger.info(response.getResHead().getChnlType());
+		logger.info(((Res7021) response.getResBody()).getInterest());
+		
 	}
 }

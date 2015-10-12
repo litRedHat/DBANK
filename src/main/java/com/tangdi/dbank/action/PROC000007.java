@@ -33,24 +33,14 @@ public class PROC000007 {
 	@RequestMapping(value = "/RestfulNoparam", method = RequestMethod.GET)
 	public Res7021 restfulNoparam(HttpServletRequest request, HttpServletResponse response) {
 		Res7021 res7021 = new Res7021();
-		res7021.setTransCode("7021");
-		res7021.setTransDate("7021");
-		res7021.setTransTime("7021");
-		res7021.setTrcNo("7021");
-		res7021.setResCode("0000");
-		res7021.setResMsg("RestfulNoparam");
+		res7021.setInterest("RestfulNoparam");
 		return res7021;
 	}
 
 	@RequestMapping(value = "/RestfulHasparam", method = RequestMethod.GET)
 	public Res7021 restfulHasparam(@RequestParam(value = "name") String name) {
 		Res7021 res7021 = new Res7021();
-		res7021.setTransCode("7021");
-		res7021.setTransDate("7021");
-		res7021.setTransTime("7021");
-		res7021.setTrcNo("7021");
-		res7021.setResCode("0000");
-		res7021.setResMsg("RestfulHasparam");
+		res7021.setInterest("RestfulHasparam");
 		return res7021;
 	}
 
@@ -58,12 +48,7 @@ public class PROC000007 {
 	public Res7021 restfulOneParam(@PathVariable int id, HttpServletRequest request, HttpServletResponse response) {
 		logger.info("id=" + id);
 		Res7021 res7021 = new Res7021();
-		res7021.setTransCode("7021");
-		res7021.setTransDate("7021");
-		res7021.setTransTime("7021");
-		res7021.setTrcNo("7021");
-		res7021.setResCode("0000");
-		res7021.setResMsg("/RestfulOneParam/{id}");
+		res7021.setInterest("/RestfulOneParam/{id}");
 		return res7021;
 	}
 
@@ -72,12 +57,7 @@ public class PROC000007 {
 			HttpServletResponse response) {
 		logger.info("id=" + id + ";opration=" + opration);
 		Res7021 res7021 = new Res7021();
-		res7021.setTransCode("7021");
-		res7021.setTransDate("7021");
-		res7021.setTransTime("7021");
-		res7021.setTrcNo("7021");
-		res7021.setResCode("0000");
-		res7021.setResMsg("/RestfulTwoParam/{id}/Opration/{opration}");
+		res7021.setInterest("/RestfulTwoParam/{id}/Opration/{opration}");
 		return res7021;
 	}
 
