@@ -1,56 +1,11 @@
 package com.tangdi.dbank.xmlbean.chip.req;
 
-public class Req7021 {
-	private String TransCode;
-	private String ChnlType;
-	private String TransDate;
-	private String TransTime;
-	private String TrcNo;
+public class Req7021 extends BaseReqBody{
 	private String Telephone;
 	private String Content;
 	private String Protocol;
 	private String TempCode;
 	private String SrcBranch;
-
-	public String getTransCode() {
-		return TransCode;
-	}
-
-	public void setTransCode(String transCode) {
-		TransCode = transCode;
-	}
-
-	public String getChnlType() {
-		return ChnlType;
-	}
-
-	public void setChnlType(String chnlType) {
-		ChnlType = chnlType;
-	}
-
-	public String getTransDate() {
-		return TransDate;
-	}
-
-	public void setTransDate(String transDate) {
-		TransDate = transDate;
-	}
-
-	public String getTransTime() {
-		return TransTime;
-	}
-
-	public void setTransTime(String transTime) {
-		TransTime = transTime;
-	}
-
-	public String getTrcNo() {
-		return TrcNo;
-	}
-
-	public void setTrcNo(String trcNo) {
-		TrcNo = trcNo;
-	}
 
 	public String getTelephone() {
 		return Telephone;

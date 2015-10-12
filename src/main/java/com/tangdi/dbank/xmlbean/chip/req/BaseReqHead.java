@@ -1,4 +1,4 @@
-package com.tangdi.dbank.xmlbean.chip;
+package com.tangdi.dbank.xmlbean.chip.req;
 
 public class BaseReqHead {
 	private String TransCode;
