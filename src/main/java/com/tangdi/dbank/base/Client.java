@@ -1,6 +1,8 @@
 package com.tangdi.dbank.base;
 
+import java.io.DataOutputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Reader;
 import java.io.Writer;
@@ -14,8 +16,10 @@ import org.slf4j.LoggerFactory;
 public class Client {
 	private static final Logger logger = LoggerFactory.getLogger(Client.class);
 	String host = "10.18.16.1"; // 要连接的服务端IP地址
-	int port = 5401; // 要连接的服务端对应的监听端口
-	int timeout = 10000;// 连接超时时间
+	int port = 5401;
+	// String host = "192.168.0.111"; // 要连接的服务端IP地址
+	// int port = 57813; // 要连接的服务端对应的监听端口
+	int timeout = 1000;// 连接超时时间
 
 	public static void main(String args[]) throws Exception {
 		new Client().SocketTool1();
@@ -27,11 +31,19 @@ public class Client {
 		Socket client = new Socket();
 		SocketAddress endpoint = new InetSocketAddress(host, port);
 		client.connect(endpoint, timeout);
+		// OutputStream ops = client.getOutputStream();
+		// DataOutputStream dos = new DataOutputStream(ops);
+		// dos.writeBytes(
+		// "00000413<?xml version=\"1.0\"
+		// encoding=\"gbk\"?><Msg><Head><TransCode>7021</TransCode><ChnlType>10</ChnlType><TransDate>20150819</TransDate><TransTime>154912</TransTime><TrcNo>20150819000000614752</TrcNo></Head><Body><Telephone>15618389010</Telephone><Content>动态密码：389593(2分钟内有效)。您正在进行海南银行椰Bank安全认证。</Content><Protocol>C200</Protocol><TempCode>9999</TempCode><SrcBranch>9999</SrcBranch></Body></Msg>");
+		// dos.flush();
+
 		// 建立连接后就可以往服务端写数据了
 		Writer writer = new OutputStreamWriter(client.getOutputStream());
 		writer.write(
 				"00000413<?xml version=\"1.0\" encoding=\"gbk\"?><Msg><Head><TransCode>7021</TransCode><ChnlType>10</ChnlType><TransDate>20150819</TransDate><TransTime>154912</TransTime><TrcNo>20150819000000614752</TrcNo></Head><Body><Telephone>15618389010</Telephone><Content>动态密码：389593(2分钟内有效)。您正在进行海南银行椰Bank安全认证。</Content><Protocol>C200</Protocol><TempCode>9999</TempCode><SrcBranch>9999</SrcBranch></Body></Msg>");
 		writer.flush();// 写完后要记得flush
+		System.out.println("发送完毕");
 		Reader reader = new InputStreamReader(client.getInputStream(), "gbk");
 		char chars[] = new char[64];
 		int len;

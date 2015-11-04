@@ -61,6 +61,7 @@ request.getScheme():<%=request.getScheme()%></br>
 request.getServerName():<%=request.getServerName()%></br>
 request.getServerPort():<%=request.getServerPort()%></br>
 request.getRequestURL():<%=request.getRequestURL()%></br>
+request.getRequestURL():<%=this.getServletContext().getRealPath("/")%></br>
 	<input type="button" onclick="ajaxRequest()" value="Ajax-POST"></input>
 	<input type="button" onclick="sendEmail()" value="SendEmail"></input>
 

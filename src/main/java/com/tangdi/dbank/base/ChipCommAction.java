@@ -46,7 +46,9 @@ public class ChipCommAction {
 		logger.info("Original request message:" + requestMsg);
 
 		/* send tcp request */
-
+		
+		
+		
 		String responseMsg = "00000296<?xml version=\"1.0\" encoding=\"gbk\"?><Msg><Head><TransCode>7021</TransCode><ChnlType>10</ChnlType><TransDate>20151012</TransDate><TransTime>155529</TransTime><TrcNo>20151012155529000196</TrcNo><Mac>201510121555290001961245978645</Mac><ResCode>0000</ResCode><ResMsg>交易成功</ResMsg></Head><Body><Interest>1.23</Interest></Body></Msg>";
 		logger.info("Original response message:" + responseMsg);
 		XStream xs = new XStream();
